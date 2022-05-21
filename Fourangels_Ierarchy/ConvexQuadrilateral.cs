@@ -11,6 +11,27 @@ namespace Fourangels_Ierarchy
     {
         private double leightA, leightB, leightC, leightD;
         private double angleA, angleB, angleC, angleD;
+        private double perimetr, square;
+        protected double Perimetr
+        {
+            get { return perimetr; }
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Value " + value + " can't be seted as a perimetr of this quadriterial");
+                else perimetr = value;
+            }
+        }
+        protected double Square
+        {
+            get { return square; }
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Value " + value + " can't be seted as a square of this quadriterial");
+                else square = value;
+            }
+        }
         protected double LeightA
         {
             get { return leightA; }
@@ -91,12 +112,21 @@ namespace Fourangels_Ierarchy
                 else angleD = value;
             }
         }
-        public void LeightOfSides(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
+        public void LeightOfSidesCalculation(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
         {
             LeightA = Sqrt(Pow(xb - xa, 2) + Pow(yb - ya, 2));
             LeightB = Sqrt(Pow(xc - xb, 2) + Pow(yc - yb, 2));
             LeightC = Sqrt(Pow(xd - xc, 2) + Pow(yd - yc, 2));
             LeightD = Sqrt(Pow(xd - xa, 2) + Pow(yd - ya, 2));
         }
+        public void PerimetrCalculation()
+        {
+            Perimetr = LeightA + LeightB + LeightC + LeightD;
+        }
+        protected override void DiagonalCalculation()
+        {
+
+        }
+
     }
 }
