@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fourangels_Ierarchy
 {
-    internal class Paralelogram : ConvexQuadrilateral
+    public class Paralelogram : ConvexQuadrilateral
     {
 
     }

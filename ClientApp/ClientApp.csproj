@@ -52,5 +52,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fourangels_Ierarchy\LFourangels.csproj">
+      <Project>{944c69f4-4887-4ed6-862a-19a1c01bbde8}</Project>
+      <Name>LFourangels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

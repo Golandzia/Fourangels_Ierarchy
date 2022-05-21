@@ -7,12 +7,33 @@ using static System.Math;//Почему не работает без "static" ?
 
 namespace Fourangels_Ierarchy
 {
-    class ConvexQuadrilateral : Point
+    public class ConvexQuadrilateral
     {
         private double leightA, leightB, leightC, leightD;
         private double angleA, angleB, angleC, angleD;
         private double perimetr, square;
-        protected double Perimetr
+        private double diagonal1, diagonal2;
+        public double Diagonal1
+        {
+            get{ return diagonal1; }
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Value " + value + " can't be seted as diagonal value");
+                else diagonal1 = value;
+            }
+        }
+        public double Diagonal2
+        {
+            get{ return diagonal2; }
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Value " + value + " can't be seted as diagonal value");
+                else diagonal2 = value;
+            }
+        }
+        public double Perimetr
         {
             get { return perimetr; }
             set
@@ -22,7 +43,7 @@ namespace Fourangels_Ierarchy
                 else perimetr = value;
             }
         }
-        protected double Square
+        public double Square
         {
             get { return square; }
             set
@@ -32,7 +53,7 @@ namespace Fourangels_Ierarchy
                 else square = value;
             }
         }
-        protected double LeightA
+        public double LeightA
         {
             get { return leightA; }
             set
@@ -42,7 +63,7 @@ namespace Fourangels_Ierarchy
                 else leightA = value;
             }
         }
-        protected double LeightB
+        public double LeightB
         {
             get { return leightB; }
             set
@@ -52,7 +73,7 @@ namespace Fourangels_Ierarchy
                 else leightB = value;
             }
         }
-        protected double LeightC
+        public double LeightC
         {
             get { return leightC; }
             set
@@ -62,7 +83,7 @@ namespace Fourangels_Ierarchy
                 else leightC = value;
             }
         }
-        protected double LeightD
+        public double LeightD
         {
             get { return leightD; }
             set
@@ -72,7 +93,7 @@ namespace Fourangels_Ierarchy
                 else leightD = value;
             }
         }
-        protected double AngelA
+        public double AngelA
         {
             get { return angleA; }
             set
@@ -82,7 +103,7 @@ namespace Fourangels_Ierarchy
                 else angleA = value;
             }
         }
-        protected double AngelB
+        public double AngelB
         {
             get { return angleB; }
             set
@@ -92,7 +113,7 @@ namespace Fourangels_Ierarchy
                 else angleB = value;
             }
         }
-        protected double AngelC
+        public double AngelC
         {
             get { return angleC; }
             set
@@ -102,7 +123,7 @@ namespace Fourangels_Ierarchy
                 else angleC = value;
             }
         }
-        protected double AngelD
+        public double AngelD
         {
             get { return angleD; }
             set
@@ -123,10 +144,8 @@ namespace Fourangels_Ierarchy
         {
             Perimetr = LeightA + LeightB + LeightC + LeightD;
         }
-        protected override void DiagonalCalculation()
-        {
-
-        }
-
+        protected virtual void DiagonalCalculation( ) { }
+        protected virtual void SquareCalculation( ) { }
+        protected virtual void AnglesCalculation( ) { }
     }
 }

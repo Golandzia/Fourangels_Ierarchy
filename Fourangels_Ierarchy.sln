@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fourangels_Ierarchy", "Fourangels_Ierarchy\Fourangels_Ierarchy.csproj", "{944C69F4-4887-4ED6-862A-19A1C01BBDE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFourangels", "Fourangels_Ierarchy\LFourangels.csproj", "{944C69F4-4887-4ED6-862A-19A1C01BBDE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{145EBAFC-70EA-4A4E-8211-EF583B04C236}"
 EndProject

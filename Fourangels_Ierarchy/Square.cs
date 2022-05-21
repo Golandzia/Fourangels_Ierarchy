@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fourangels_Ierarchy
 {
-    internal class Square : ConvexQuadrilateral
+    public class Square : ConvexQuadrilateral
     {
     }
 }
