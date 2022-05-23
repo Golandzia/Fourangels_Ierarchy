@@ -144,8 +144,19 @@ namespace Fourangels_Ierarchy
         {
             Perimetr = LeightA + LeightB + LeightC + LeightD;
         }
-        protected virtual void DiagonalCalculation( ) { }
-        protected virtual void SquareCalculation( ) { }
-        protected virtual void AnglesCalculation( ) { }
+        protected void DiagonalCalculation(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd) 
+        {
+            Diagonal1 = Sqrt(Pow(xc - xa, 2) + Pow(yc - ya, 2));
+            Diagonal2 = Sqrt(Pow(xd - xb, 2) + Pow(yd - yb, 2));
+        }
+        protected virtual void SquareCalculation( ) 
+        {
+            double HalfPerimetr = Perimetr / 2;
+            Square = Sqrt((HalfPerimetr - LeightA) * (HalfPerimetr - LeightB) * (HalfPerimetr - LeightC) * (HalfPerimetr - LeightD));
+        }
+        protected virtual void AnglesCalculation( ) 
+        {
+            
+        }
     }
 }
