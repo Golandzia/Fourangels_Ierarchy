@@ -22,6 +22,30 @@ namespace Fourangels_Ierarchy
             Square = (Diagonals[0] * Diagonals[1]) / 2;
             return Square;
         }
-
+        public override string ToString()
+        {
+            string results =
+                "\n\nLeight of sides:\nAB = " + Sides[0] + "\nBC = " + Sides[1] + "\nCD = " + Sides[2] + "\nDA = " + Sides[3] +
+                "\n\nLeight of diagonals:\nAC = " + Diagonals[0] + "\nBD = " + Diagonals[1] +
+                "\n\nPerimetr = " + Perimetr +
+                "\n\nSquare = " + Square +
+                "\n\nAngles:\nAngle A = " + Angles[0] + "\nB = " + Angles[1] + "\nC = " + Angles[2] + "\nD = " + Angles[3];
+            return results;
+        }
+        public void MainRomb()
+        {
+            Romb romb = new Romb();
+            Console.WriteLine("Romb");
+            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
+            romb.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
+            romb.LeightOfSidesCalculation();
+            romb.DiagonalCalculation();
+            romb.AnglesCalculation();
+            romb.SquareCalculation();
+            romb.PerimetrCalculation();
+            Console.WriteLine(romb.ToString());
+        }
     }
 }

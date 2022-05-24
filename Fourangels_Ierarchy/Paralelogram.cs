@@ -23,5 +23,30 @@ namespace Fourangels_Ierarchy
             Angles[3] = Angles[1];
             return Angles;
         }
+        public override string ToString()
+        {
+            string results =
+                "\n\nLeight of sides:\nAB = " + Sides[0] + "\nBC = " + Sides[1] + "\nCD = " + Sides[2] + "\nDA = " + Sides[3] +
+                "\n\nLeight of diagonals:\nAC = " + Diagonals[0] + "\nBD = " + Diagonals[1] +
+                "\n\nPerimetr = " + Perimetr +
+                "\n\nSquare = " + Square +
+                "\n\nAngles:\nAngle A = " + Angles[0] + "\nB = " + Angles[1] + "\nC = " + Angles[2] + "\nD = " + Angles[3];
+            return results;
+        }
+        public void MainParalelogram()
+        {
+            Paralelogram paralelogram = new Paralelogram();
+            Console.WriteLine("Paralelogram");
+            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
+            paralelogram.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
+            paralelogram.LeightOfSidesCalculation();
+            paralelogram.DiagonalCalculation();
+            paralelogram.AnglesCalculation();
+            paralelogram.SquareCalculation();
+            paralelogram.PerimetrCalculation();
+            Console.WriteLine(paralelogram.ToString());
+        }
     }
 }

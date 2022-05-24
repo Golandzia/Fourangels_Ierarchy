@@ -10,40 +10,25 @@ namespace ClientApp
     {
         static void Main()
         {
-            Paralelogram paralelogram = new Paralelogram();
-            Console.WriteLine("Paralelogram");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            paralelogram.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            paralelogram.LeightOfSidesCalculation();
-            paralelogram.DiagonalCalculation();
-            paralelogram.AnglesCalculation();
-            paralelogram.SquareCalculation();
-            paralelogram.PerimetrCalculation();
-
-            Romb romb = new Romb();
-            Console.WriteLine("Romb");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            romb.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            romb.LeightOfSidesCalculation();
-            romb.DiagonalCalculation();
-            romb.AnglesCalculation();
-            romb.SquareCalculation();
-            romb.PerimetrCalculation();
-
-            Square square = new Square();
-            Console.WriteLine("Square");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            square.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            square.DiagonalCalculation();
-            square.AnglesCalculation();
-            square.SquareCalculation();
-            square.PerimetrCalculation();
+            Console.WriteLine("Select a figure\n1.Paralelogram\n2.Romb\n3.Square\nTo select a figure write her number end press <Enter>");
+            short UserSelect = Convert.ToInt16(Console.ReadLine());
+            switch (UserSelect)
+            {
+                case 1:
+                    Paralelogram paralelogram = new Paralelogram();
+                    paralelogram.MainParalelogram();
+                    break;
+                case 2:
+                    Romb romb = new Romb();
+                    romb.MainRomb();
+                    break;
+                case 3:
+                    Square square = new Square();
+                    square.MainSquare();
+                    break;
+                default: Console.WriteLine("Select 1, 2 or 3 !");
+                    break;
+            }
             Console.ReadKey();
         }
     }
