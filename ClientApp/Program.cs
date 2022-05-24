@@ -34,7 +34,17 @@ namespace ClientApp
             romb.SquareCalculation();
             romb.PerimetrCalculation();
 
-
+            Square square = new Square();
+            Console.WriteLine("Square");
+            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
+            square.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
+            square.DiagonalCalculation();
+            square.AnglesCalculation();
+            square.SquareCalculation();
+            square.PerimetrCalculation();
+            Console.ReadKey();
         }
     }
 }
