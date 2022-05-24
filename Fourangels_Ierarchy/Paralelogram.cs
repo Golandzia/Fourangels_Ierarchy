@@ -36,7 +36,7 @@ namespace Fourangels_Ierarchy
         public void MainParalelogram()
         {
             Paralelogram paralelogram = new Paralelogram();
-            Console.WriteLine("Paralelogram");
+            Console.WriteLine("You select a Paralelogram");
             Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
             paralelogram.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
                 Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),

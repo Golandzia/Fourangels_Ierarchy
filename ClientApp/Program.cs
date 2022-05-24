@@ -10,7 +10,7 @@ namespace ClientApp
     {
         static void Main()
         {
-            Console.WriteLine("Select a figure\n1.Paralelogram\n2.Romb\n3.Square\nTo select a figure write her number end press <Enter>");
+            UserIsStupid: Console.WriteLine("Select a figure\n1.Paralelogram\n2.Romb\n3.Square\nTo select a figure write her number end press <Enter>");
             short UserSelect = Convert.ToInt16(Console.ReadLine());
             switch (UserSelect)
             {
@@ -27,6 +27,7 @@ namespace ClientApp
                     square.MainSquare();
                     break;
                 default: Console.WriteLine("Select 1, 2 or 3 !");
+                         goto UserIsStupid;
                     break;
             }
             Console.ReadKey();

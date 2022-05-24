@@ -35,7 +35,7 @@ namespace Fourangels_Ierarchy
         public void MainRomb()
         {
             Romb romb = new Romb();
-            Console.WriteLine("Romb");
+            Console.WriteLine("You select a Romb");
             Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
             romb.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
                 Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
