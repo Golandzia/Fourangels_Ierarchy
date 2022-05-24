@@ -8,32 +8,33 @@ namespace Fourangels_Ierarchy
 {
     public class Point
     {
-        private int x, y;
-        protected int X
+        private double x, y;
+        public double X
         {
             get { return x; }
             set
             {
-                if(value<-100 || value>100)
+                if (value < -100 || value > 100)
                     Console.WriteLine("Value " + value + "Can't be seted for X coordinate");
                 else x = value;
             }
         }
-        protected int Y
+        public double Y
         {
             get { return y; }
             set
             {
-                if(value<-100 || value>100)
+                if (value < -100 || value > 100)
                     Console.WriteLine("Value " + value + "Can't be seted for Y coordinate");
                 else y = value;
             }
         }
-        public Point(int x, int y)
+        public Point(double x, double y)
         {
             X = x;
             Y = y;
         }
         public Point() { }
+
     }
 }

@@ -3,36 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Math;//Почему не работает без "static" ?
+using static System.Math;
 
 namespace Fourangels_Ierarchy
 {
     public class ConvexQuadrilateral
     {
-        private double leightA, leightB, leightC, leightD;
-        private double angleA, angleB, angleC, angleD;
         private double perimetr, square;
-        private double diagonal1, diagonal2;
-        public double Diagonal1
+        public List<double> Sides = new List<double> {new double(), new double(), new double(), new double() };
+        public List<double> Diagonals = new List<double> { new double(), new double() };
+        public List<double> Angles = new List<double> { new double(), new double(), new double(), new double() };
+        public List<Point> Points = new List<Point>
         {
-            get{ return diagonal1; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Value " + value + " can't be seted as diagonal value");
-                else diagonal1 = value;
-            }
-        }
-        public double Diagonal2
-        {
-            get{ return diagonal2; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Value " + value + " can't be seted as diagonal value");
-                else diagonal2 = value;
-            }
-        }
+            new Point(),
+            new Point(),
+            new Point(),
+            new Point()
+        };
         public double Perimetr
         {
             get { return perimetr; }
@@ -53,110 +40,51 @@ namespace Fourangels_Ierarchy
                 else square = value;
             }
         }
-        public double LeightA
+
+
+
+        public void SetCoordinates(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
         {
-            get { return leightA; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Vallue " + " Can't be seted as leight of side A");
-                else leightA = value;
-            }
+            Points[0].X = xa;
+            Points[0].Y = ya;
+            Points[1].X = xb;
+            Points[1].Y = yb;
+            Points[2].X = xc;
+            Points[2].Y = yc;
+            Points[3].X = xd;
+            Points[3].Y = yd;
         }
-        public double LeightB
+
+
+        public List<double> LeightOfSidesCalculation()
         {
-            get { return leightB; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Vallue " + " Can't be seted as leight of side B");
-                else leightB = value;
-            }
+            Sides[0] = (Sqrt(Pow(Points[1].X - Points[0].X, 2) + Pow(Points[1].Y - Points[0].Y, 2)));
+            Sides[1] = (Sqrt(Pow(Points[2].X - Points[1].X, 2) + Pow(Points[2].Y - Points[1].Y, 2)));
+            Sides[2] = (Sqrt(Pow(Points[3].X - Points[2].X, 2) + Pow(Points[3].Y - Points[2].Y, 2)));
+            Sides[3] = (Sqrt(Pow(Points[3].X - Points[0].X, 2) + Pow(Points[3].Y - Points[0].Y, 2)));
+            return Sides;
         }
-        public double LeightC
+        protected double PerimetrCalculation()
         {
-            get { return leightC; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Vallue " + " Can't be seted as leight of side C");
-                else leightC = value;
-            }
+            Perimetr = Sides[0] + Sides[1] + Sides[2] + Sides[3];
+            return Perimetr;
         }
-        public double LeightD
+        public List<double> DiagonalCalculation()
         {
-            get { return leightD; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Vallue " + " Can't be seted as leight of side D");
-                else leightD = value;
-            }
+            Diagonals[0] = (Sqrt(Pow(Points[2].X - Points[0].X, 2) + Pow(Points[2].Y - Points[0].Y, 2)));
+            Diagonals[1] = (Sqrt(Pow(Points[3].X - Points[1].X, 2) + Pow(Points[3].Y - Points[1].Y, 2)));
+            return Diagonals;
         }
-        public double AngelA
-        {
-            get { return angleA; }
-            set
-            {
-                if(value<0)
-                    Console.WriteLine("Value " + value + " can't be seted as degree value of angle A");
-                else angleA = value;
-            }
-        }
-        public double AngelB
-        {
-            get { return angleB; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Value " + value + " can't be seted as degree value of angle B");
-                else angleB = value;
-            }
-        }
-        public double AngelC
-        {
-            get { return angleC; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Value " + value + " can't be seted as degree value of angle C");
-                else angleC = value;
-            }
-        }
-        public double AngelD
-        {
-            get { return angleD; }
-            set
-            {
-                if (value < 0)
-                    Console.WriteLine("Value " + value + " can't be seted as degree value of angle D");
-                else angleD = value;
-            }
-        }
-        public void LeightOfSidesCalculation(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
-        {
-            LeightA = Sqrt(Pow(xb - xa, 2) + Pow(yb - ya, 2));
-            LeightB = Sqrt(Pow(xc - xb, 2) + Pow(yc - yb, 2));
-            LeightC = Sqrt(Pow(xd - xc, 2) + Pow(yd - yc, 2));
-            LeightD = Sqrt(Pow(xd - xa, 2) + Pow(yd - ya, 2));
-        }
-        public void PerimetrCalculation()
-        {
-            Perimetr = LeightA + LeightB + LeightC + LeightD;
-        }
-        protected void DiagonalCalculation(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd) 
-        {
-            Diagonal1 = Sqrt(Pow(xc - xa, 2) + Pow(yc - ya, 2));
-            Diagonal2 = Sqrt(Pow(xd - xb, 2) + Pow(yd - yb, 2));
-        }
-        protected virtual void SquareCalculation( ) 
+        public virtual double SquareCalculation()
         {
             double HalfPerimetr = Perimetr / 2;
-            Square = Sqrt((HalfPerimetr - LeightA) * (HalfPerimetr - LeightB) * (HalfPerimetr - LeightC) * (HalfPerimetr - LeightD));
+            Square = Sqrt((HalfPerimetr - Sides[0]) * (HalfPerimetr - Sides[1]) * (HalfPerimetr - Sides[2]) * (HalfPerimetr - Sides[3]));
+            return Square;
         }
-        protected virtual void AnglesCalculation( ) 
+        public virtual List<double> AnglesCalculation()
         {
-            
+            Console.WriteLine("Фурмулы нахождения углов выпуклого четырехугольника НЕ СУЩЕСТВУЕТ! ");
+            return Angles;
         }
     }
 }

@@ -10,12 +10,23 @@ namespace ClientApp
     {
         static void Main()
         {
-            Console.WriteLine("Enter the coordinates of points: ");
-            Point A = new Point(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
-            Point B = new Point(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
-            Point C = new Point(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
-            Point D = new Point(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
+            Paralelogram paralelogram = new Paralelogram();
+            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
+            paralelogram.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
+                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
+            
+            paralelogram.LeightOfSidesCalculation();
+            paralelogram.DiagonalCalculation();
+            paralelogram.AnglesCalculation();
+            List<double> test = paralelogram.AnglesCalculation();
 
+            foreach (double angle in test)
+            {
+                Console.WriteLine(angle);
+            }
+            Console.ReadKey();
+            
         }
     }
 }
