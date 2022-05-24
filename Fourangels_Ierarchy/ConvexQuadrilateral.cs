@@ -64,7 +64,7 @@ namespace Fourangels_Ierarchy
             Sides[3] = (Sqrt(Pow(Points[3].X - Points[0].X, 2) + Pow(Points[3].Y - Points[0].Y, 2)));
             return Sides;
         }
-        protected double PerimetrCalculation()
+        public double PerimetrCalculation()
         {
             Perimetr = Sides[0] + Sides[1] + Sides[2] + Sides[3];
             return Perimetr;

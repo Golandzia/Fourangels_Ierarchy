@@ -9,19 +9,14 @@ namespace Fourangels_Ierarchy
 {
     public class Paralelogram : ConvexQuadrilateral
     {
-        
-        //public override double SquareCalculation()
-        //{
-        //    Square = Sides[0] * Sides[1] *
-        //    return Square;
-        //}
 
-        
-
+        public override double SquareCalculation()
+        {
+            Square = Sides[2] * Sqrt(Pow(Points[0].X - Points[0].X, 2) + Pow(Points[3].Y - Points[0].Y, 2));
+            return Square;
+        }
         public override List<double> AnglesCalculation()
         {
-            double LongerDiagonal;
-            
             Angles[0] = ((Acos((Pow(Sides[3], 2) + Pow(Sides[2], 2) - Pow(Max(Diagonals[0], Diagonals[1]), 2)) / (2 * Sides[2] * Sides[3]))) * 180) / PI;
             Angles[1] = (360 - (Angles[0] * 2)) / 2;
             Angles[2] = Angles[0];
