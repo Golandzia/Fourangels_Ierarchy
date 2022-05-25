@@ -23,30 +23,24 @@ namespace Fourangels_Ierarchy
             Angles[3] = Angles[1];
             return Angles;
         }
-        public override string ToString()
+
+        public Paralelogram(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
         {
-            string results =
-                "\n\nLeight of sides:\nAB = " + Sides[0] + "\nBC = " + Sides[1] + "\nCD = " + Sides[2] + "\nDA = " + Sides[3] +
-                "\n\nLeight of diagonals:\nAC = " + Diagonals[0] + "\nBD = " + Diagonals[1] +
-                "\n\nPerimetr = " + Perimetr +
-                "\n\nSquare = " + Square +
-                "\n\nAngles:\nAngle A = " + Angles[0] + "\nB = " + Angles[1] + "\nC = " + Angles[2] + "\nD = " + Angles[3];
-            return results;
+            Points[0].X = xa;
+            Points[0].Y = ya;
+            Points[1].X = xb;
+            Points[1].Y = yb;
+            Points[2].X = xc;
+            Points[2].Y = yc;
+            Points[3].X = xd;
+            Points[3].Y = yd;
+            LeightOfSidesCalculation();
+            if (Sides[0] <= 0 || Sides[1] <= 0 || Sides[2] <= 0 || Sides[3] <= 0)
+            {
+                Console.WriteLine("This is no such Paralelogram");
+                Console.ReadKey();
+            }
         }
-        public void MainParalelogram()
-        {
-            Paralelogram paralelogram = new Paralelogram();
-            Console.WriteLine("You select a Paralelogram");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            paralelogram.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            paralelogram.LeightOfSidesCalculation();
-            paralelogram.DiagonalCalculation();
-            paralelogram.AnglesCalculation();
-            paralelogram.SquareCalculation();
-            paralelogram.PerimetrCalculation();
-            Console.WriteLine(paralelogram.ToString());
-        }
+        public Paralelogram() { }
     }
 }

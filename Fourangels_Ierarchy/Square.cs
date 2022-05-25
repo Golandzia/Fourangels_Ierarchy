@@ -21,30 +21,23 @@ namespace Fourangels_Ierarchy
             Square = Sides[0] * Sides[0];
             return Square;
         }
-        public override string ToString()
+        public Square(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
         {
-            string results =
-                "\n\nLeight of sides:\nAB = " + Sides[0] + "\nBC = " + Sides[1] + "\nCD = " + Sides[2] + "\nDA = " + Sides[3] +
-                "\n\nLeight of diagonals:\nAC = " + Diagonals[0] + "\nBD = " + Diagonals[1] +
-                "\n\nPerimetr = " + Perimetr +
-                "\n\nSquare = " + Square +
-                "\n\nAngles:\nAngle A = " + Angles[0] + "\nB = " + Angles[1] + "\nC = " + Angles[2] + "\nD = " + Angles[3];
-            return results;
+            Points[0].X = xa;
+            Points[0].Y = ya;
+            Points[1].X = xb;
+            Points[1].Y = yb;
+            Points[2].X = xc;
+            Points[2].Y = yc;
+            Points[3].X = xd;
+            Points[3].Y = yd;
+            LeightOfSidesCalculation();
+            if (Sides[0] <= 0 || Sides[1] <= 0 || Sides[2] <= 0 || Sides[3] <= 0)
+            {
+                Console.WriteLine("This is no such square");
+                Console.ReadKey();
+            }
         }
-        public void MainSquare()
-        {
-            Square square = new Square();
-            Console.WriteLine("You select a Square");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            square.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            square.LeightOfSidesCalculation();
-            square.DiagonalCalculation();
-            square.AnglesCalculation();
-            square.SquareCalculation();
-            square.PerimetrCalculation();
-            Console.WriteLine(square.ToString());
-        }
+        public Square() { }
     }
 }

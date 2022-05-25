@@ -40,22 +40,6 @@ namespace Fourangels_Ierarchy
                 else square = value;
             }
         }
-
-
-
-        public void SetCoordinates(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
-        {
-            Points[0].X = xa;
-            Points[0].Y = ya;
-            Points[1].X = xb;
-            Points[1].Y = yb;
-            Points[2].X = xc;
-            Points[2].Y = yc;
-            Points[3].X = xd;
-            Points[3].Y = yd;
-        }
-
-
         public List<double> LeightOfSidesCalculation()
         {
             Sides[0] = (Sqrt(Pow(Points[1].X - Points[0].X, 2) + Pow(Points[1].Y - Points[0].Y, 2)));
@@ -86,5 +70,32 @@ namespace Fourangels_Ierarchy
             Console.WriteLine("Фурмулы нахождения углов выпуклого четырехугольника НЕ СУЩЕСТВУЕТ! ");
             return Angles;
         }
+        public override string ToString()
+        {
+            return
+                "\n\nLeight of sides:\nAB = " + Round(Sides[0], 2) + "\nBC = " + Round(Sides[1], 2) + "\nCD = " + Round(Sides[2], 2) + "\nDA = " + Round(Sides[3], 2) +
+                "\n\nLeight of diagonals:\nAC = " + Round(Diagonals[0], 2) + "\nBD = " + Round(Diagonals[1], 2) +
+                "\n\nPerimetr = " + Round(Perimetr, 2) +
+                "\n\nSquare = " + Round(Square, 2) +
+                "\n\nAngles:\nAngle A = " + Round(Angles[0], 2) + "\nAngle B = " + Round(Angles[1], 2) + "\nAngle C = " + Round(Angles[2], 2) + "\nAngle D = " + Round(Angles[3], 2);
+        }
+        public ConvexQuadrilateral (double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
+        {
+            Points[0].X = xa;
+            Points[0].Y = ya;
+            Points[1].X = xb;
+            Points[1].Y = yb;
+            Points[2].X = xc;
+            Points[2].Y = yc;
+            Points[3].X = xd;
+            Points[3].Y = yd;
+            LeightOfSidesCalculation();
+            if (Sides[0]<=0 || Sides[1]<=0||Sides[2]<=0|| Sides[3]<=0)
+            {
+                Console.WriteLine("This is no such convex qudriterial");
+                Console.ReadKey();
+            }
+        }
+        public ConvexQuadrilateral() { }
     }
 }

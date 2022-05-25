@@ -22,30 +22,23 @@ namespace Fourangels_Ierarchy
             Square = (Diagonals[0] * Diagonals[1]) / 2;
             return Square;
         }
-        public override string ToString()
+        public Romb(double xa, double ya, double xb, double yb, double xc, double yc, double xd, double yd)
         {
-            string results =
-                "\n\nLeight of sides:\nAB = " + Sides[0] + "\nBC = " + Sides[1] + "\nCD = " + Sides[2] + "\nDA = " + Sides[3] +
-                "\n\nLeight of diagonals:\nAC = " + Diagonals[0] + "\nBD = " + Diagonals[1] +
-                "\n\nPerimetr = " + Perimetr +
-                "\n\nSquare = " + Square +
-                "\n\nAngles:\nAngle A = " + Angles[0] + "\nB = " + Angles[1] + "\nC = " + Angles[2] + "\nD = " + Angles[3];
-            return results;
+            Points[0].X = xa;
+            Points[0].Y = ya;
+            Points[1].X = xb;
+            Points[1].Y = yb;
+            Points[2].X = xc;
+            Points[2].Y = yc;
+            Points[3].X = xd;
+            Points[3].Y = yd;
+            LeightOfSidesCalculation();
+            if (Sides[0] <= 0 || Sides[1] <= 0 || Sides[2] <= 0 || Sides[3] <= 0)
+            {
+                Console.WriteLine("This is no such Romb");
+                Console.ReadKey();
+            }
         }
-        public void MainRomb()
-        {
-            Romb romb = new Romb();
-            Console.WriteLine("You select a Romb");
-            Console.WriteLine("Enter the coordinates of points in format:\nX coordinate of point A\nY coordinate of point A \nX coordinate of point B\n etc...");
-            romb.SetCoordinates(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()),
-                Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            romb.LeightOfSidesCalculation();
-            romb.DiagonalCalculation();
-            romb.AnglesCalculation();
-            romb.SquareCalculation();
-            romb.PerimetrCalculation();
-            Console.WriteLine(romb.ToString());
-        }
+        public Romb() { }
     }
 }
