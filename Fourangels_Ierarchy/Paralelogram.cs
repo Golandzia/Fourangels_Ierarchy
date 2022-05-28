@@ -35,11 +35,13 @@ namespace Fourangels_Ierarchy
             Points[3].X = xd;
             Points[3].Y = yd;
             LeightOfSidesCalculation();
-            if (Sides[0] <= 0 || Sides[1] <= 0 || Sides[2] <= 0 || Sides[3] <= 0)
+            PerimetrCalculation();
+            SquareCalculation();
+            if (Square <= 0)
             {
-                Console.WriteLine("This is no such Paralelogram");
-                Console.ReadKey();
+                exist = false;
             }
+            else exist = true;
         }
         public Paralelogram() { }
     }
